@@ -1,2 +1,4 @@
-# backToEden
-Back to Eden Wordpress Woocommerce
+# Bison setup
+- Use node 18+
+- npm install
+- gulp watch

@@ -1,0 +1,1 @@
+function checkRuralOrIndustrial(){document.querySelectorAll(".page-template-home .btn--red").addEventListner("click",function(e){e=e.currentTarget["data-attr"];console.log(e),console.log("hello")})}

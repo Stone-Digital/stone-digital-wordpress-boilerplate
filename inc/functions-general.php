@@ -89,19 +89,22 @@ add_filter('gform_init_scripts_footer', function() {
 });
 
 function script_enqueues() {
-			
+	
 	if ( wp_script_is( 'jquery', 'registered' ) ) {
-		
 		wp_deregister_script( 'jquery' );
-		
 	}
 
+	// Enqueue jQuery from Google CDN
 	wp_enqueue_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.1/jquery.min.js', array(), '2.2.1', false );
-	wp_enqueue_script( 'custom', get_template_directory_uri() . '/js/main.min.js', array(), '1.0.0', false );
 
-	wp_enqueue_style( 'style', get_template_directory_uri() . '/style.css', false, '1.0.0', 'all' );
-	
+	// Enqueue custom JavaScript file
+	wp_enqueue_script( 'custom', get_template_directory_uri() . '/dist/js/main-min.js', array(), '1.0.0', false );
+
+	// Enqueue compiled and minified style.css from /dist/css/
+	wp_enqueue_style( 'style', get_template_directory_uri() . '/dist/css/style.css', false, '1.0.0', 'all' );
 }
+
+add_action( 'wp_enqueue_scripts', 'script_enqueues' );
 
 /*
 Admin Bar
@@ -136,5 +139,30 @@ function remove_menus(){
   
 }
 add_action( 'admin_menu', 'remove_menus' );
+
+if( function_exists('acf_add_options_page') ) {
+
+    // Add the main options page
+    acf_add_options_page(array(
+        'page_title'    => 'Theme General Settings',
+        'menu_title'    => 'Theme Settings',
+        'menu_slug'     => 'theme-general-settings',
+        'capability'    => 'edit_posts',
+        'redirect'      => false
+    ));
+
+    // Add a sub page under the main options page (optional)
+    acf_add_options_sub_page(array(
+        'page_title'    => 'Navigation Settings',
+        'menu_title'    => 'Navigation',
+        'parent_slug'   => 'theme-general-settings',
+    ));
+
+    acf_add_options_sub_page(array(
+        'page_title'    => 'Footer Settings',
+        'menu_title'    => 'Footer',
+        'parent_slug'   => 'theme-general-settings',
+    ));
+}
 
 ?>

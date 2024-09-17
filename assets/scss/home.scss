@@ -1,0 +1,136 @@
+/* 
+
+CSS TABLE OF CONTENT:
+
+style for home landing split page.
+
+
+*/
+
+@import "_partials/mixins";
+@import "_partials/variables";
+@import "_partials/extends";
+@import "_partials/hamburgers";
+@import "_partials/hover";
+
+.home {
+	.home__section {
+		width:100vw;
+		min-height:100vh;
+		display:block;
+		@media(min-width:$tablet) {
+			display:flex;
+		}
+		.home_section--top {
+		    position: relative;
+		    display: flex;
+		    align-items: center;
+		    justify-content: center;
+		    text-align: center;
+		    width: 100%;
+		    padding-top:50px;
+		    z-index:4;
+		    @media(min-width:$tablet) {
+		    	position:absolute;
+		    	top:0;
+		    }
+		    .logo--bison {
+		    	width:125px;
+		    	height:125px;
+		    	@media(min-width: $tablet){
+				  // this for any device larger than 1400px wide
+				  width:155px;
+		    	  height:155px;
+				}
+		    	@media(min-width: $laptop){
+				  width:195px;
+		    	  height:195px;
+				}
+		    }
+		    h1 {
+		    	font-size:30px;
+		    	max-width: 338px;
+    			line-height: 140%;
+    			color:$black;
+    			margin-bottom:25px;
+    			@media(min-width: $tablet){
+				  // this for any device larger than 1400px wide
+				  font-size:40px;
+				  max-width: 600px;
+				  color:$cream;
+				}
+				@media(min-width: $laptop){
+				  // this for any device larger than 1400px wide
+				  font-size:60px;
+				  max-width: 900px;
+				}
+
+		    }
+		}
+		.home__section--columns {
+		    display: block;
+		    padding: 0px;
+		    background-size: cover;
+		    background-position: center;
+		    width:calc(100% - 50px);
+		    margin:auto;
+		    position:relative;
+		    @media(min-width: $tablet){
+				  // this for any device larger than 1400px wide
+				  padding:50px;
+				  width:100%;
+				  display:flex;
+				  align-items:flex-end;
+				  justify-content: flex-end;
+				  width:100%;
+				  margin:0;
+				}
+		    &::before {
+		    	content: '';
+			    width: 100%;
+			    height: 100%;
+			    position: absolute;
+			    top: 0;
+			    left:0;
+			    z-index:1;
+			    background:rgba(0,0,0,.4);
+			}
+			div {
+				position: relative;
+			    text-align: center;
+			    z-index: 2;
+			    box-sizing: border-box;
+			    width: 100%;
+			    margin-bottom: 50px;
+			    box-sizing:border-box;
+			    min-height:500px;
+			    display:flex;
+			    align-items:center;
+			    justify-content: center;
+			    @media(min-width: $tablet){
+				 padding:50px;
+				 width:100%;
+				 margin-bottom:0;
+				 min-height:auto;
+				}
+			}
+		    h2 {
+		    	font-size:30px;
+		    	margin-bottom:25px;
+		    	@media(min-width: $tablet){
+				  font-size:40px;
+				  max-width: 900px;
+				}
+		    	@media(min-width: $laptop){
+				  font-size:40px;
+				}
+		    }
+		    p.text--cream {
+		    	margin-bottom:35px;
+		    	max-width:300px;
+		    	margin:auto;
+		    	margin-bottom:35px;
+		    }
+		}
+	}
+}

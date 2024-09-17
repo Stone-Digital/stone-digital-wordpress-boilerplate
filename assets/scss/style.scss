@@ -1,0 +1,78 @@
+/*
+Theme Name: Bison Construction
+Theme URI: https://stonedigital.com.au
+Author: Stone Digital Themes
+Author URI: https://stonedigital.com.au
+Version: 4.0.4
+License: GNU General Public License
+License URI: https://www.gnu.org/licenses/gpl.html
+Tags: mb, custom, sass, js, template
+Text Domain: Stone Digital
+
+Stone Digital WordPress Theme © 2011-2022 
+Bison Construction is distributed under the terms of the GNU GPL
+*/
+
+@import "_partials/mixins";
+@import "_partials/variables";
+@import "_partials/extends";
+@import "_partials/hamburgers";
+@import "_partials/hover";
+
+
+
+/*
+------------------------------------------------------------------------------------------------------------------------>
+GENERAL
+------------------------------------------------------------------------------------------------------------------------>
+*/
+
+@font-face {
+  font-family: 'PilatCondensed';
+  src: url('../../assets/fonts/PilatCondensed-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pilat';
+  src: url('../../assets/fonts/Pilat-Book.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pilat';
+  src: url('../../assets/fonts/Pilat-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+h1,h2,h3,h4,h5,h6 {
+	 font-family: 'Pilat';
+	 font-weight:700;
+}
+
+
+html {
+  font-size: 16px; /* Ensure this is set or adjust if necessary */
+}
+
+.text--cream {
+	color:$cream;
+}
+
+.btn--red {
+	@extend %button-red;
+}
+
+p,span,li {
+	font-size:16px;
+	font-family: 'Pilat', sans-serif;
+	font-weight:400;
+	@media(min-width: $laptop){
+		  // this for any device larger than 1400px wide
+		  font-size:18px;
+		}
+}
