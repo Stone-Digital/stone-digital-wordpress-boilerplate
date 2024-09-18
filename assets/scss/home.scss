@@ -38,7 +38,6 @@ style for home landing split page.
 		    	width:125px;
 		    	height:125px;
 		    	@media(min-width: $tablet){
-				  // this for any device larger than 1400px wide
 				  width:155px;
 		    	  height:155px;
 				}
@@ -54,15 +53,16 @@ style for home landing split page.
     			color:$black;
     			margin-bottom:25px;
     			@media(min-width: $tablet){
-				  // this for any device larger than 1400px wide
 				  font-size:40px;
 				  max-width: 600px;
 				  color:$cream;
 				}
 				@media(min-width: $laptop){
-				  // this for any device larger than 1400px wide
-				  font-size:60px;
+				  font-size:40px;
 				  max-width: 900px;
+				}
+				@media(min-width: $desktop) {
+					font-size:60px;
 				}
 
 		    }

@@ -72,6 +72,10 @@ html {
 	@extend %button-red;
 }
 
+.fade--up,
+.sequence--fade-up {
+	visibility:	hidden;
+}
 
 
 p,

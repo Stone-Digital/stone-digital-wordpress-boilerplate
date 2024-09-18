@@ -165,4 +165,10 @@ if( function_exists('acf_add_options_page') ) {
     ));
 }
 
+function enqueue_scrollreveal() {
+    wp_enqueue_script('scrollreveal', 'https://unpkg.com/scrollreveal', array(), null, true);
+}
+add_action('wp_enqueue_scripts', 'enqueue_scrollreveal');
+
+
 ?>
