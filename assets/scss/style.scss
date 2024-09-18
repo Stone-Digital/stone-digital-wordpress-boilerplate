@@ -50,10 +50,15 @@ GENERAL
 
 
 h1,h2,h3,h4,h5,h6 {
-	 font-family: 'Pilat';
+	 font-family:$font;
 	 font-weight:700;
 }
 
+.page-template-home {
+	 .masthead {
+	 	display:none;
+	 }
+}
 
 html {
   font-size: 16px; /* Ensure this is set or adjust if necessary */
@@ -67,12 +72,17 @@ html {
 	@extend %button-red;
 }
 
-p,span,li {
-	font-size:16px;
-	font-family: 'Pilat', sans-serif;
+
+
+p,
+span,
+li,
+button.switch-button {
+	font-size:18px;
+	font-family:$font;
 	font-weight:400;
 	@media(min-width: $laptop){
 		  // this for any device larger than 1400px wide
-		  font-size:18px;
+		  font-size:20px;
 		}
 }

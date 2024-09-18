@@ -125,11 +125,14 @@ style for home landing split page.
 				  font-size:40px;
 				}
 		    }
-		    p.text--cream {
+		    p {
 		    	margin-bottom:35px;
 		    	max-width:300px;
 		    	margin:auto;
 		    	margin-bottom:35px;
+		    	@media(min-width: $tablet){
+				  max-width: 400px;
+				}
 		    }
 		}
 	}
