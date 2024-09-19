@@ -102,24 +102,30 @@
                                                     <?php
                                                     // Sub-sub link loop - Sub-sub-links are children of the sub-link now
                                                     if( have_rows('sub_sub_link') ):
-                                                        while( have_rows('sub_sub_link') ) : the_row();
-                                                            $sub_link = get_sub_field('sub_link');
-
-                                                            if ( !empty($sub_link) && isset($sub_link['url'], $sub_link['title']) ):
-                                                            ?>
-                                                            <div class="sub--sub--link--item">
-                                                                <a 
-                                                                    href="<?= esc_url( $sub_link['url'] ); ?>" 
-                                                                    aria-label="<?= esc_attr( $sub_link['title'] ); ?>"
-                                                                    target="<?= !empty( $sub_link['target'] ) ? esc_attr( $sub_link['target'] ) : '_self'; ?>"
-                                                                    class="sub--sub--link">
-                                                                    <?= esc_html( $sub_link['title'] ); ?>
-                                                                </a>
-                                                            </div>
+                                                        ?>
+                                                        <div class="sub--sub--parent--wrap">
                                                             <?php
-                                                            endif;
+                                                            while( have_rows('sub_sub_link') ) : the_row();
+                                                                $sub_link = get_sub_field('sub_link');
 
-                                                        endwhile;
+                                                                if ( !empty($sub_link) && isset($sub_link['url'], $sub_link['title']) ):
+                                                                ?>
+                                                                <div class="sub--sub--link--item">
+                                                                    <a 
+                                                                        href="<?= esc_url( $sub_link['url'] ); ?>" 
+                                                                        aria-label="<?= esc_attr( $sub_link['title'] ); ?>"
+                                                                        target="<?= !empty( $sub_link['target'] ) ? esc_attr( $sub_link['target'] ) : '_self'; ?>"
+                                                                        class="sub--sub--link">
+                                                                        <?= esc_html( $sub_link['title'] ); ?>
+                                                                    </a>
+                                                                </div>
+                                                                <?php
+                                                                endif;
+
+                                                            endwhile;
+                                                            ?>
+                                                        </div>
+                                                        <?php
                                                     endif;
                                                     ?>
 
@@ -129,13 +135,13 @@
 
                                             endwhile;
                                             ?>
-                                            <button class="switch-button" id="switch-to-industrial">Switch to Industrial Structures <img src="<?= get_template_directory_uri(); ?>/assets/images/svg/switch.svg" alt="switch"/></button>
+                                            <button class="switch-button" data-attr="rural">Switch to Rural Structures <img src="<?= get_template_directory_uri(); ?>/assets/images/svg/switch.svg" alt="switch"/></button>
                                            
                                         </div>
                                              <div class="sub--sub--link-wrapper--images">
                                                 <?php
-                                                if( have_rows('Image_CTA') ):
-                                                    while( have_rows('Image_CTA') ) : the_row();
+                                                if( have_rows('image_cta') ):
+                                                    while( have_rows('image_cta') ) : the_row();
                                                         $image = get_sub_field('image');
                                                         $link = get_sub_field('link');
                                                         // Do something...
@@ -280,35 +286,41 @@
 
                                                     <?php
                                                     // Sub-sub link loop - Sub-sub-links are children of the sub-link now
-                                                    if( have_rows('sub_sub_link') ):
-                                                        while( have_rows('sub_sub_link') ) : the_row();
-                                                            $sub_link = get_sub_field('sub_link');
-
-                                                            if ( !empty($sub_link) && isset($sub_link['url'], $sub_link['title']) ):
+                                                        if( have_rows('sub_sub_link') ):
                                                             ?>
-                                                            <div class="sub--sub--link--item">
-                                                                <a 
-                                                                    href="<?= esc_url( $sub_link['url'] ); ?>" 
-                                                                    aria-label="<?= esc_attr( $sub_link['title'] ); ?>"
-                                                                    target="<?= !empty( $sub_link['target'] ) ? esc_attr( $sub_link['target'] ) : '_self'; ?>"
-                                                                    class="sub--sub--link">
-                                                                    <?= esc_html( $sub_link['title'] ); ?>
-                                                                </a>
+                                                            <div class="sub--sub--parent--wrap">
+                                                            <?php
+                                                            while( have_rows('sub_sub_link') ) : the_row();
+                                                                $sub_link = get_sub_field('sub_link');
+
+                                                                if ( !empty($sub_link) && isset($sub_link['url'], $sub_link['title']) ):
+                                                                ?>
+                                                                <div class="sub--sub--link--item">
+                                                                    <a 
+                                                                        href="<?= esc_url( $sub_link['url'] ); ?>" 
+                                                                        aria-label="<?= esc_attr( $sub_link['title'] ); ?>"
+                                                                        target="<?= !empty( $sub_link['target'] ) ? esc_attr( $sub_link['target'] ) : '_self'; ?>"
+                                                                        class="sub--sub--link">
+                                                                        <?= esc_html( $sub_link['title'] ); ?>
+                                                                    </a>
+                                                                </div>
+                                                                <?php
+                                                                endif;
+
+                                                            endwhile;
+                                                            ?>
                                                             </div>
                                                             <?php
-                                                            endif;
+                                                        endif;
 
-                                                        endwhile;
-                                                    endif;
-                                                    ?>
-
+                                                        ?>
                                                 </div> <!-- Close sub-link-item -->
                                                 <?php
                                                 endif;
 
                                             endwhile;
                                             ?>
-                                            <button class="switch-button" id="switch-to-rural">Switch to Industrial Structures <img src="<?= get_template_directory_uri(); ?>/assets/images/svg/switch.svg" alt="switch"/></button>
+                                            <button class="switch-button" data-attr="industrial">Switch to Industrial Structures <img src="<?= get_template_directory_uri(); ?>/assets/images/svg/switch.svg" alt="switch"/></button>
                                            
                                         </div>
                                              <div class="sub--sub--link-wrapper--images">

@@ -1,0 +1,139 @@
+@import "_partials/mixins";
+@import "_partials/variables";
+@import "_partials/extends";
+@import "_partials/hamburgers";
+@import "_partials/hover";
+
+.mastfoot {
+	background:$black;
+	margin-top:50vh;
+	padding:50px;
+	.mastfoot_footer__logo{
+		display:flex;
+		align-items:center;
+		justify-content: center;
+		text-align:center;
+		margin-bottom:25px;
+
+	}
+	.footer--logo {
+		margin:auto;
+		left:0;
+		right:0;
+	}
+	h2.gform_title {
+		font-size:18px;
+		color:$cream;
+		text-align:center;
+		font-weight:400;
+		font-family:$font;
+	}
+	form#gform_1 {
+		display:flex;
+		align-items:center;
+		justify-content: center;
+		margin-bottom:50px;
+	}
+	.gform-body input,
+	input#input_1_1,
+	input#input_1_3 {
+	    background: none;
+	    background-color: rgba(0, 0, 0, 0.3);
+	    min-height:45px;
+	    padding:5px;
+	    text-indent:5px;
+	    font-family:$font;
+	    &::placeholder {
+	    	color:rgba(255,255,255,0.3);
+	    }
+	}
+	input#gform_submit_button_1 {
+		@extend %button-red;
+		min-width:auto;
+		position:relative;
+        top: -1px;
+        top: -13px;
+        margin-left: 15px;
+	}
+	.gform-theme--foundation {
+		max-width:1200px;
+		width:100%;
+		margin:auto;
+	}
+	.gform-theme--framework .gfield:where(:not(.gfield--type-html):not(.gfield--type-section)) {
+		min-width:300px;
+
+	}
+	section.mastfoot__menus {
+		max-width:$laptop;
+		margin:auto;
+		display:flex;
+		color:$white;
+		.menu--items {
+			width:25%;
+			padding-right:50px;
+			.heading--link {
+				text-transform:uppercase;
+				font-size:16px;
+				a {
+					color:$cream;
+					font-family:$font;
+					&:hover {
+						text-decoration:none;
+						transition:.4s;
+					}
+				}
+			}
+			.footer--address,
+			.footer--opening--times,
+			.footer--copyright {
+				font-size:14px;
+			}
+			.footer--copyright {
+				margin-bottom:0;
+
+			}
+			.footer--contact--icon {
+				width:27px;
+				height:27px;
+				margin-right:15px;
+			}
+			a.footer--tell--link {
+				font-size:18px;
+				color:$cream;
+				font-weight:700;
+			}
+			.footer--email--address {
+				display:block;
+				margin-bottom:15px;
+				font-size:18px;
+				color:$cream;
+			}
+			.social--links {
+				display:flex;
+				align-items:center;
+				margin-top:25px;
+				margin-bottom:25px;
+				.social--icon {
+					margin-right:15px;
+				}
+			}
+			p.footer--notes {
+			    font-size: 12px;
+			}
+			a.menu--link {
+				color:$cream;
+				display:block;
+				font-family:$font;
+				transition:.4s;
+				&:hover {
+					text-decoration:none;
+					opacity:.8;
+					transition:.4s;
+					line-0height:140%;
+					font-weight:700;
+				}
+			}
+		}
+	}
+}
