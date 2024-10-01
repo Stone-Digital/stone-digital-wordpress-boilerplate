@@ -1,17 +1,37 @@
 /* variables */
-
+@font-face {
+    font-family: 'PilatCondensed';
+    src: url('../../assets/fonts/PilatCondensed-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Pilat-book';
+    src: url('../../assets/fonts/Pilat-Book.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Pilat-bold';
+    src: url('../../assets/fonts/Pilat-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+  }
+  
 $white: #fff;
 $black: #000;
 $red: #D12F13;
 $cream: #F8F6F4;
 $offcream: #FAF9F8;
 $hover: #932411;
-$defaultfont: 'helvetica', arial, sans-serif;
-$hover_color: orange;
-$screen_max_width: 1500px;
+$screen_max_width: 1600px;
+$sub_max_width: 800px;
 $desktop: 1600px;
 $laptop: 1300px;
 $tablet: 800px;
 $mobile: 600px;
 $highlight: 1px solid rgba(0,0,0,0.2);
-$font: 'Palit', sans-serif;
+$fontbold: 'Pilat-bold', sans-serif;
+$font: 'Pilat-book', sans-serif;

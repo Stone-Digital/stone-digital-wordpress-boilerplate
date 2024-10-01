@@ -1,0 +1,161 @@
+/* Gravity Form Section Styles */
+.contact-section{
+    background-color: #F8F6F4;
+    padding: 175px 0 181px 0;
+}
+.contact-inner {
+    max-width: 1200px;
+    margin: 0 auto;    
+}
+  
+  /* General Form Field Styles */
+  .gform_wrapper .gform_body .gfield_label {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #A7A7A7;
+  }
+
+  .gform_wrapper .gform_heading {
+    color: #000000;
+    text-align: center;
+    font-weight: bold;
+    margin: 20px 0 0 0;
+  }
+  
+  .contact-section .hc-section-title {
+    font-size: 18px;
+    line-height: 26px;
+    text-align: center;
+  }
+  
+
+  
+  .gform_wrapper .gform_heading .gform_description {
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: bold;
+    margin: 0 0 47px 0;
+  }
+  
+  .gform_wrapper .gform_body .ginput_container input,
+  .gform_wrapper .gform_body .ginput_container textarea {
+    width: 100%;
+    height: 100%;
+    padding: 22px 0 22px 27px;
+    font-size: 18px;
+    border: 1px solid #DEDBD4;
+    border-radius: 2px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+    background: #FFFFFF;
+    line-height: 1;
+  }
+
+  
+  .gform_wrapper .gform_body .ginput_container input:focus,
+  .gform_wrapper .gform_body .ginput_container textarea:focus {
+    border: 2px solid #D12F12;
+    border-radius: 2px;
+    outline: none;
+  }
+  
+  .gform_wrapper .gform_body .ginput_container textarea {
+    height: 150px;
+    resize: vertical;
+  }
+  
+  /* Name Field Styling */
+  .gform_wrapper .gfield.name-field input {
+    background-color: #eef6ff;
+  }
+  
+  /* Email Field Styling */
+  .gform_wrapper .gfield.email-field input {
+    background-color: #f0fff4;
+  }
+  
+  /* Phone Field Styling */
+  .gform_wrapper .gfield.phone-field input {
+    background-color: #fff8e1;
+  }
+  
+  /* Message Field Styling */
+  .gform_wrapper .gfield.message-field textarea {
+    background-color: #fff0f6;
+  }
+  
+  /* Form Field Spacing */
+  .gform_wrapper .gfield {
+    /* margin-bottom: 20px; */
+  }
+  
+  .gform_footer.top_label {
+    justify-content: center;
+  }
+
+  .gform_footer input#gform_submit_button_2  {
+    background-color: #D12F13; /* Blue button */
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 46px;
+    border-radius: 35px;
+    width: 150px;
+    height: 58px;
+    margin: 54px 0 0 0;
+  }
+  
+  .gform_footer input#gform_submit_button_2:hover {
+    background-color: #932411; /* Darker blue on hover */
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  @media (max-width: 1439px) {
+    .gform_wrapper .gform_body .ginput_container{
+      width: 100%;
+      height: 66px;
+    }
+    
+    .gform_wrapper .gform_body .ginput_container.ginput_container_textarea {
+      width: 100%;
+      height: 176px;
+    }
+    .contact-section{
+      padding: 120px 0;
+    }
+    form#gform_2 {
+      padding: 0 40px;
+    }
+    .gform_wrapper .gform_heading .gform_title {
+      font-size: 30px;
+      line-height: 40px;
+    }
+    
+    .gform_wrapper .gform_heading .gform_description {
+      font-size: 16px;
+      line-height: 24px;
+      margin: 0 0 31px 0;
+    }
+    .gform_footer input#gform_submit_button_2  {
+      margin: 49px 0 0 0;
+    }
+    .gform_wrapper .gform_heading .gform_description {
+      margin: 0 0 57px 0;
+    }
+  }
+  @media (max-width: 768px) {
+    .gform_wrapper .gform_heading {
+      width: 80%;
+      margin: 0 auto;
+    }
+    
+  }
+  @media (max-width: 480px) {
+    .contact-section{
+      padding: 86px 0;
+    }
+    
+  }

@@ -1,0 +1,211 @@
+.project-section {
+    width: 100%;
+    padding: 180px 0 190px 0;
+    background-color: #f4f4f4;
+    position: relative;
+}
+
+.project-section__header {
+    text-align: center;
+    margin: 0 0 89px 0;
+}
+  
+.project-section__header .project-section__title {
+    margin: 0 0 29px 0;
+    font-size: 18px;
+    line-height: 26px;
+}
+  
+.project-section__header .project-section__subscription {
+    font-size: 40px;
+    font-weight: bold;
+    color: #000000;
+    line-height: 58px;
+}
+
+/* Swiper Container */
+.swiper-container {
+    width: 83%;
+    margin: 0 auto;
+}
+
+.swiper-slide {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    height: 573px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.swiper-slide::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.32);
+    z-index: 1; /* Keep it behind the content */
+}
+/* Overlay content on the image */
+.slide-content {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 15px;
+    color: white;
+    width: 80%;
+    z-index: 10;
+    border-radius: 5px;
+}
+
+.slide-content-tw {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    padding: 15px;
+    color: white;
+    width: 80%;
+    z-index: 10;
+    border-radius: 5px;
+}
+
+.slide-content h2 {
+    font-size: 30px;
+    line-height: 44px;
+    margin-bottom: 10px;
+}
+
+.slide-content p {
+    font-size: 12px;
+    line-height: 26px;
+    margin-bottom: 15px;
+}
+
+.slide-content-tw a {
+    display: inline-block;
+    padding: 8px 15px;
+    background: transparent;
+    color: white;
+    text-decoration: none;
+    border: 1px solid #FFFFFF;
+    border-radius: 33px;
+    transition: background-color 0.3s ease;
+    font-size: 18px;
+    line-height: 26px;
+}
+
+.slide-content-tw a:hover {
+    background: transparent;
+    color: white;
+}
+  /* View All Projects Button */
+.view-all-btn-wrapper {
+    text-align: center;
+    margin: 83px 0 0 0;
+}
+
+.project-button {
+    background-color: #D12F13; /* Blue button */
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 46px;
+    border-radius: 35px;
+    width: 260px;
+    height: 23px;
+    line-height: 26px;
+  }
+  
+  .project-button:hover {
+    background-color: #932411; /* Darker blue on hover */
+    color: #ffffff;
+    text-decoration: none;
+  }
+.swiper-button-next,
+.swiper-button-prev {
+    color: #ffffff;
+    background-color: #D12F13;
+    width: 45px;
+    height: 45px;
+    border-radius: 35px;
+    text-align: center;
+}
+.swiper-button-next:after, .swiper-button-prev:after {
+    font-size: 12px;
+    font-weight: bold;
+}
+@media (max-width: 1439px) {
+    .project-section {
+      padding: 120px 0;
+    }
+    .project-section__header {
+        margin: 0 0 66px 0;
+    }
+    .project-section__header .project-section__title {
+        font-size: 16px;
+        line-height: 24px;
+    }
+      
+    .project-section__header .project-section__subscription {
+        font-size: 30px;
+        line-height: 40px;
+    }
+    .swiper-slide {
+        height: 414px;
+    }
+
+    .view-all-btn-wrapper {
+        margin: 61px 0 0 0;
+    }
+
+    .slide-content h2 {
+        font-size: 24px;
+    }
+    
+    .slide-content p {
+        font-size: 10px;
+    }
+    .slide-content-tw a {
+        font-size: 16px;
+    }
+    .project-button {
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+        transform: translateY(100%);
+    }
+}
+
+/* Adjust for responsiveness */
+@media screen and (max-width: 768px) {
+    /* .swiper-container {
+        width: 70%;
+    } */
+    .swiper-slide {
+        height: 300px;
+    }
+    .project-section__header .project-section__subscription {
+        margin: 0 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .project-section {
+        padding: 80px 0 106px 0;
+    }
+    
+    .swiper-container {
+        width: 50%;
+        margin: 0 90px;
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+        transform: translateY(130%);
+    }
+}

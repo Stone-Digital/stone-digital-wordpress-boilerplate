@@ -97,11 +97,19 @@ function script_enqueues() {
 	// Enqueue jQuery from Google CDN
 	wp_enqueue_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.1/jquery.min.js', array(), '2.2.1', false );
 
-	// Enqueue custom JavaScript file
-	wp_enqueue_script( 'custom', get_template_directory_uri() . '/dist/js/main-min.js', array(), '1.0.0', false );
+	
 
 	// Enqueue compiled and minified style.css from /dist/css/
-	wp_enqueue_style( 'style', get_template_directory_uri() . '/dist/css/style.css', false, '1.0.0', 'all' );
+	wp_enqueue_style( 'swiper', get_template_directory_uri() . '/dist/css/swiper.min.css', false, '11.1.14', 'all' );
+  	wp_enqueue_style('mobilemenu-css', get_stylesheet_directory_uri() . '/dist/css/jquery-simple-mobilemenu-slide.css', '', time());
+	wp_enqueue_style( 'style', get_template_directory_uri() . '/dist/css/style.css', false, time(), 'all' );
+	wp_enqueue_style( 'style-main', get_stylesheet_directory_uri() . '/style.css', '', time() );
+
+  // Enqueue custom JavaScript file
+	wp_enqueue_script( 'swiper', get_template_directory_uri() . '/dist/js/swiper.min.js', array('jquery'), '11.1.14', true );  
+  	wp_enqueue_script('mobile-menu-js', get_stylesheet_directory_uri() . '/dist/js/jquery-simple-mobilemenu.min.js', array('jquery'), time(), true);
+	wp_enqueue_script( 'clean', get_template_directory_uri() . '/dist/js/custom.js', array('jquery','mobile-menu-js'), time(), true );
+	wp_enqueue_script( 'custom', get_template_directory_uri() . '/dist/js/main-min.js', array(), '1.0.0', true );
 }
 
 add_action( 'wp_enqueue_scripts', 'script_enqueues' );
@@ -170,5 +178,34 @@ function enqueue_scrollreveal() {
 }
 add_action('wp_enqueue_scripts', 'enqueue_scrollreveal');
 
+// add class on main menu child ul
+class Bison_Walker_Nav_Menu extends Walker_Nav_Menu {
+	function start_lvl(&$output, $depth = 0, $args = NULL) {
+		$indent = str_repeat("\t", $depth);
+		$output .= "\n$indent<ul class=\"ht-nav-desktop__sub-menu sub-menu-packages\">\n";
+	}
+}
 
-?>
+// output wordpress menu in ul, li, a html tag
+function bison_generate_menu_mobile($menu_items, $parent_id = 0) {
+	$menu_html = '';
+
+	// Loop through the menu items for the given parent ID
+	foreach ($menu_items as $menu_item) {
+		if ($menu_item->menu_item_parent == $parent_id) {
+			$menu_html .= '<li>';
+			$menu_url = $menu_item->url ? 'href="'. $menu_item->url . '"' : '';
+			$menu_html .= '<a ' . $menu_url . '>' . $menu_item->title . '</a>';
+
+			// Check if the menu item has any child items
+			$child_items = bison_generate_menu_mobile($menu_items, $menu_item->ID);
+			if ($child_items) {
+				$menu_html .= '<ul class="submenu">' . $child_items . '</ul>';
+			}
+
+			$menu_html .= '</li>';
+		}
+	}
+
+	return $menu_html;
+}
