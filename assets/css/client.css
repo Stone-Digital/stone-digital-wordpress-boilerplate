@@ -1,0 +1,87 @@
+.logo-section {
+  text-align: center;
+  padding: 180px 0 230px 0;
+  background-color: #D12F13;
+}
+
+/* .logo-section__header {
+  margin-top: 130px;
+} */
+
+.logo-section__title {
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: bold;
+  color: #000000;
+  margin: 0 0 30px 0;
+}
+
+.logo-section__subscription {
+  font-size: 40px;
+  line-height: 54px;
+  font-weight: bold;
+  color: #F8F6F4;
+  margin-bottom: 104px;
+}
+
+.logo-section__logos {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+}
+
+.logo-section__logo {
+  max-width: 209px;
+  max-height: 43px;
+  object-fit: contain;
+}
+
+@media (max-width: 1439px) {
+  .logo-section {
+    padding: 119px 0 125px 0;
+  }
+  .logo-section__subscription {
+    font-size: 30px;
+    line-height: 44px;
+    margin-bottom: 84px;
+  }
+  .logo-section__logos {
+    gap: 10px;
+  }
+  .logo-section__logo {
+    max-width: 178px;
+    max-height: 37px;
+    object-fit: contain;
+  }
+}
+@media (max-width: 964px) {
+  .logo-section__logos {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .logo-section__subscription {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .logo-section__logos {
+    margin-top: 60px;
+  }
+}
+@media (max-width: 768px) {
+  .logo-section__logo {
+    max-width: 100px;
+  }
+   
+  .logo-section__header {
+    margin: 0 0 45px 0;
+  }
+}
+@media (max-width: 480px) {
+  .logo-section {
+    text-align: center;
+    padding: 90px 0 145px 0;
+  }
+ 
+}

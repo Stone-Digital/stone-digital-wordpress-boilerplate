@@ -1,8 +1,7 @@
 <?php
-/* Template Name: Home - landing page */
-
-get_header(); ?>
-<?php 
+/**
+ * Home Landing Page Block
+ */
 $heading = get_field('heading');
 $industrial_heading = get_field('industrial_heading');
 $industrial_info = get_field('industrial_info');
@@ -81,5 +80,3 @@ $rural_image = get_field('rural_image');
         </section>
     </section>
 </main>
-
-<?php get_footer(); ?>

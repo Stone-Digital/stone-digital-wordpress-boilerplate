@@ -7,10 +7,15 @@
     border-radius: 50px;
     text-decoration: none;
     transition: .5s;
-    font-size:14px;
+    font-size:16px;
+    font-family: $font;
+    min-width:172px;
     @media(min-width:$tablet) {
-    	min-width:200px;
     	font-size:16px;
+    }
+    @media(min-width:$laptop) {
+    	// min-width:200px;
+    	font-size:18px;
     }
     &:hover {
     	background:$hover;

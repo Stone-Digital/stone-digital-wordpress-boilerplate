@@ -1,0 +1,114 @@
+
+/*******************************************************************
+ * 29.0 Product Page Header
+ *******************************************************************/
+ .page-header {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.page-header .banner-video-or-image,
+.page-header .page-header__inner {
+    z-index: 0;
+}
+.product-page__container {
+    padding: 34px 15px 50px;
+}
+.page-header__container {
+    padding: 15px;
+    /* padding: calc(-3vw + 22px);*/
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 211px;
+    position: relative;
+}
+.page-header__inner {
+    max-width: 600px;
+    width: 100%;
+    margin: -14px auto 0px;
+    width: 100%;
+}
+.page-header__inner h1 {
+    color: #fff;
+    font-family: 'PoetsenOne-Regular', sans-serif;
+    line-height: 1.3;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: normal;
+    text-shadow: 0 2px 14px rgba(43, 41, 41, 0.5);
+    font-size: 30px;
+}
+.page-header__inner .page-header__desc,
+.page-header__inner p {
+    font-size: 14px;
+    color: #fff;
+    font-family: 'GeneralSans',sans-serif;
+    font-weight: 200;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+
+@media (min-width: 680px) {
+    .page-header__inner h1 {
+        font-size: 46px;
+    }
+    .page-header__container {
+        padding: 25px;
+    }
+    .page-header__inner {
+        margin: 0 auto;
+        max-width: 564px
+    }
+    .page-header__container {
+        height: 326px;
+        align-items: flex-start;
+    }
+    .page-header__inner .page-header__desc,
+    .page-header__inner p {
+        font-size: 21px;
+        line-height: 1.7;
+    }
+}
+@media (min-width: 768px) {
+    .page-header__inner h1 {
+        font-size: 56px;
+    }
+    .page-header__inner {
+        max-width: 600px
+    }
+    .product-page__container {
+        padding-top: 0px;
+    }
+}
+@media (min-width: 1020px) {
+    .page-header__container {
+        height: 395px;
+        align-items: center;
+    }
+    .page-header__inner {
+        max-width: 913px;
+        margin-top: -34px;
+    }
+    .page-header__inner h1 {
+        margin-bottom: 22px;
+        font-size: 65px;
+        line-height: 1.2;
+        margin-bottom: 20px;
+    }
+}
+@media (min-width: 1100px) {
+    .page-header__inner {
+        max-width: 918px;
+    }
+}
+@media (min-width: 1200px) {
+    .page-header__inner {
+        max-width: 1070px;
+    }
+}
+@media (min-width: 1300px) {
+    .page-header__inner {
+        max-width: 1130px;
+    }
+}

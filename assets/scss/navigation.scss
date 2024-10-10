@@ -4,34 +4,63 @@
 @import "_partials/hamburgers";
 @import "_partials/hover";
 
+header.masthead {
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+    top:0;
+	left: 0;
+  	right: 0;
+	z-index: 999;
+}
+
+
 .masthead {
 	.navigation__menu {
-		display:flex;
-		align-items:center;
-		max-width:$screen_max_width;
-		margin:auto;
-		position:relative;
-		border-bottom:$highlight;
-		display:none;
-		&.active {
-			display:flex;
-		}
+	    display: flex; /* Keep the display as flex */
+	    align-items: center;
+	    max-width: 100%;
+	    margin: auto;
+	    // position: absolute;
+	    left: 0;
+	    right: 0;
+	    // top: -123px;
+	    opacity: 0; /* Set initial opacity to 0 for hiding */
+	    visibility: hidden; /* Make it invisible initially */
+	    transition: top 0.4s ease, opacity 0.4s ease, visibility 0s 0.4s; /* Combine transitions */
+	    background:$white;
+	    &.active {
+	        top: 0; /* Move to the visible position */
+	        opacity: 1; /* Make it visible */
+	        visibility: visible; /* Ensure it's visible */
+	        transition-delay: 1s; /* Delay for the transition */
+	        transition: top 0.4s ease, opacity 0.4s ease; /* Transition for position and opacity */
+	    }
 		.navigation__rural--sub,
 		.navigation__rural--industrial {
 			display:flex;
 			flex-direction:row-reverse;
 			width:100%;
 		}
+		.rural--logo {
+			padding-left:15px;
+		}
 		.navigation__rural--sub--sub,
 		.navigation__industrial--sub--sub {
 			display:flex;
 			align-items:center;
+			position: relative;
+			&.active {
+				display:flex;
+			}
 			.tellink.btn--red {
 				border-radius:0;
 				display:flex;
 				align-items:center;
 				padding:15px;
 				box-sizing:border-box;
+				margin-right:0;
+				height: 103px;
 				.tel__link__sub {
 					padding-right:15px;
 					.tel__link__sub--smallheading {
@@ -44,21 +73,31 @@
 					}
 				}
 			}
+
 			.parent--link {
 				color:$black;
 			}
 			.sub--link {
 				left:0;
 				position:relative;
+				&:hover {
+					text-decoration:none;
+					color:$hover;
+					transition:.4s;
+				}
+				&::active,
+				&::focus {
+					text-decoration:none;
+				}
 			}
 			a {
 				font-family:$font;
 				font-size:18px;
-				margin:0 5px;
-				padding:5px;
 				font-weight:700;
 				transition:.4s;
-
+				&:hover {
+					text-decoration:none;
+				}
 				
 			}
 
@@ -67,6 +106,7 @@
 				margin-left:50px;
 				position:relative;
 				width: calc(100% - 352px);
+				gap: 20px;
 				.image--cta--card {
 					position: relative;
 				    display: flex;
@@ -75,6 +115,7 @@
 				    width:50%;
 				    color:$cream;
 				    overflow:hidden;
+				    padding:0;
 				    &:hover {
 				    	img {
 				    		transform:scale(1.1);
@@ -83,10 +124,10 @@
 				    }
 				    &::before {
 				    	content: "";
-					    width: calc(100% - 12px);
-					    top: 6px;
-					    height: calc(100% - 12px);
-					    left: 6px;
+					    width: 100%;
+					    top: 0;
+					    height: 100%;
+					    left: 0;
 					    background: rgba(0, 0, 0, .2);
 					    position: absolute;
 					    z-index: 2;
@@ -116,24 +157,41 @@
 			    background:$white;
 			    box-sizing:border-box;
 			    padding-right:0;
-			    display:none;
+			    display:flex;
+			    margin-top:-500px;
+			    transition:.4s;
+			    border-bottom:1px solid rgba(0,0,0,0.2);
+				transform: translateX(-30%);
+			    &.active {
+			    	margin-top:50px;
+			    	transition:.4s;
+			    }
 			    &::before {
 				    content: '';
 				    width: 1px;
 				    height: 100%;
 				    position: absolute;
 				    left: 0;
-				    background: rgba(0,0,0,0.3);
+				    background: rgba(0,0,0,0.2);
 				    top: 0;
 				    left: 38px;
-				    height: 62%;
+				    height: 0;
 				    margin: auto;
-				    top: 0;
-				    bottom: 0;
+				    top:50px;
+				    animation:lineIn .5s 1;
+				    animation-fill-mode:forwards;
+				    animation-delay:2s;
+				}
+				@keyframes lineIn {
+					0%{
+						height:0;
+					}
+					100%{
+						height:51%;
+					}
 				}
 			}
 			.sub--sub--link--item {
-			    display: none;
 			    margin:5px;
 			}
 			.sub--sub--link,
@@ -143,15 +201,21 @@
 				margin:5px 0;
 				padding:5px;
 			}
-			.sub-sub-link-item,
-			.sub--link--wrapper {
-				display:none;
+			.sub--sub--link {
+				transition:.4s;
+				&:hover {
+					opacity:.8;
+					transition:.4s;
+				}
 			}
+			
 			button.switch-button {
 				border:none;
 				margin-top:25px;
 				transition:.4s;
 				background:none;
+				display:flex;
+				align-items:center;
 				&:hover {
 					opacity:.8;
 					transition:.4s;
@@ -162,9 +226,12 @@
 			}
 		}
 		
-		.rural-menu,
-		.industrial-menu {
-
+		
+		.sub--sub--parent--wrap {
+			display:none;
+			&.active {
+				display:block;
+			}
 		}
 	}
 }

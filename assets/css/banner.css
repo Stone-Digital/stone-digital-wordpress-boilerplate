@@ -1,0 +1,176 @@
+
+
+/*******************************************************************
+ * 1.0 Home Banner
+ *******************************************************************/  
+
+/*******************************************************************
+ * 1.0 Home Banner
+ *******************************************************************/  
+
+/* Basic Styles for the Video Background Section */
+.video-background-section {
+  position: relative;
+  width: 100%;
+  height: 104vh; /* Full screen height */
+  overflow: hidden;
+}
+/* @media (min-width: 1080px) {
+  .video-background-section {
+    margin-top: 103px;
+  }
+} */
+
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure video covers the whole section */
+  z-index: 1;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background:rgba(0,0,0,0.2);
+}
+
+.logo-top {
+  margin-top: 150px;
+  z-index: 3;    
+  justify-content: space-between;
+  height: 198px;
+  width: 198px;
+}
+
+.logo-top svg {
+  margin: 45px 35px;
+}
+
+.br-content-bottom {
+  text-align: center;
+  margin-bottom: 150px;
+  z-index: 3;
+}
+
+.hb-section-title {
+  font-size: 60px;
+  color: #fff;
+  margin: 0 0 30px 0;
+  line-height: 80px;
+  color: #FFFFFF;
+}
+
+.hb-section-description {
+  font-size: 24px;
+  color: #FFFFFF;
+  line-height: 34px;
+  font-family: 'Pilat-bold', sans-serif;
+}
+
+.logo-bottom-right {
+  position: absolute;
+  bottom: 50px;
+  /* right: 10px; */
+  z-index: 3;
+}
+
+.logo-bottom-right img {
+  max-width: 200px;
+  width:198px;
+  height:198px;
+}
+
+@media (max-width: 1439px) {
+.hb-section-title {
+  font-size: 50px;
+  line-height: 60px;
+}
+
+.hb-section-description {
+    font-size: 22px;
+    line-height: 32px;
+}
+.logo-top {
+  margin-top: 140px;
+  width: 155px;
+  height: 155px;
+}
+.logo-top svg {
+  margin: 25px 10px;
+}
+}
+
+@media (min-width: 965px) {
+.logo-bottom-right {
+  right: 60px;
+}
+}
+
+@media (max-width: 964px) {
+.logo-top {
+  display: none;
+}
+.br-content-bottom {
+  margin: 118px 0 0 0;
+}
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+.hb-section-title {
+  font-size: 40px;
+  line-height: 58px;
+}
+
+.hb-section-description {
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.logo-bottom-right img {
+  max-width: 153px;
+  height: auto;
+  margin-bottom: 106px;
+}
+/* .video-background-section {
+  height: 64vh;
+} */
+.video-background,
+.overlay {
+  height: 773px;
+}
+.br-content-bottom {
+  margin-top: 50px;
+}
+}
+
+@media (max-width: 480px) {  
+.hb-section-description {
+  width: 75%;
+  margin: 0 auto
+}
+.video-background-section {
+  height: 100vh;
+}
+.video-background,
+.overlay {
+  height: 767px;
+}
+.logo-bottom-right {
+  position: absolute;
+  bottom: 100px;
+  z-index: 3;
+}
+}

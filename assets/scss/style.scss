@@ -27,37 +27,51 @@ GENERAL
 ------------------------------------------------------------------------------------------------------------------------>
 */
 
-@font-face {
-  font-family: 'PilatCondensed';
-  src: url('../../assets/fonts/PilatCondensed-Black.woff') format('woff');
-  font-weight: 900;
-  font-style: normal;
+html,body {
+	overflow-x:hidden;
+	
+}
+body.home {
+  opacity: 0;
+  animation: fadeInContentHome 1.7s ease 1 1s forwards;
 }
 
-@font-face {
-  font-family: 'Pilat';
-  src: url('../../assets/fonts/Pilat-Book.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
+body:not(.home) {
+    opacity: 0;
+    animation: fadeInContent 1.7s ease 1 2.5s forwards;
 }
 
-@font-face {
-  font-family: 'Pilat';
-  src: url('../../assets/fonts/Pilat-Bold.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
+@keyframes fadeInContent {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
-
-
+@keyframes fadeInContentHome {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
 h1,h2,h3,h4,h5,h6 {
-	 font-family:$font;
-	 font-weight:700;
+	font-family:'Pilat-bold', sans-serif;
+	font-weight:700;
 }
 
 .page-template-home {
-	 .masthead {
+	 .masthead,
+	 footer.mastfoot {
 	 	display:none;
 	 }
+
+}
+
+p,span {
+	-webkit-font-smoothing: antialiased;
 }
 
 html {
@@ -77,16 +91,10 @@ html {
 	visibility:	hidden;
 }
 
-
 p,
-span,
 li,
 button.switch-button {
 	font-size:18px;
-	font-family:$font;
+	font-family:'Pilat-book', sans-serif;
 	font-weight:400;
-	@media(min-width: $laptop){
-		  // this for any device larger than 1400px wide
-		  font-size:20px;
-		}
 }
