@@ -1,35 +1,84 @@
-const gulp = require('gulp');
-const sass = require('gulp-sass'); // enable SASS
-const cleanCSS = require('gulp-clean-css'); // minify css
-const imagemin = require('gulp-imagemin'); // minify images
-const concat = require('gulp-concat'); // concat js
-const uglify = require('gulp-uglify'); // compress js
-const watch = require('gulp-watch'); // watch all files
+// Initialize modules
+// Importing specific gulp API functions lets us write them below as series() instead of gulp.series()
+const { src, dest, watch, series, parallel } = require('gulp');
+// Importing all the Gulp-related packages we want to use
+const sourcemaps = require('gulp-sourcemaps');
+const sass = require('gulp-sass')(require('sass'));
+const concat = require('gulp-concat');
+const uglify = require('gulp-uglify');
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
+const cleancss = require('gulp-clean-css');
+const cssnano = require('cssnano');
+var replace = require('gulp-replace');
 
-gulp.task('sass', function(){
-  return gulp.src('src/scss/style.scss')
-	.pipe(sass())
-	.pipe(cleanCSS({compatibility: 'ie8'}))
-    .pipe(gulp.dest('dist/css'))
-});
+// File paths
+const files = {
+    scssPath: 'assets/scss/**/*.scss',
+    jsPath: 'assets/js/**/*.js',
+    customJSPath: 'js/src/*.js',
+    customCSSPath: 'assets/css/src/*.css'
+}
 
-gulp.task('scripts', function() {
-  return gulp.src(['src/js/vendor/*.js','src/js/scripts/*.js'])
+// Sass task: compiles the style.scss file into style.css
+function scssTask(){
+    return src(files.scssPath)
+        .pipe(sourcemaps.init()) // initialize sourcemaps first
+        .pipe(sass()) // compile SCSS to CSS
+        .pipe(postcss([ autoprefixer(), cssnano() ])) // PostCSS plugins
+        .pipe(cleancss())
+        // .pipe(sourcemaps.write('.')) // write sourcemaps file in current directory
+        .pipe(dest('./assets/css/')); // put final CSS in dist folder
+}
+
+// Custom CSS task: minify CSS files from 'assets/css/src' to ''assets/css 
+function customCssTask(){
+    return src(files.customCSSPath)
+        .pipe(postcss([ autoprefixer(), cssnano() ])) // PostCSS plugins
+        .pipe(dest('./assets/css/')
+    ); // put final CSS in dist folder
+}
+
+
+
+function debugPrint(content) {
+    console.log(content);
+}
+
+// JS task: concatenates and uglifies JS files to script.js (This is a temp of concat Js. Use it when you need)
+function jsTask(){
+    return src([
+        files.jsPath,
+        ])
+        .pipe(concat('general-concat.js'))
+        .pipe(uglify())
+        .pipe(dest('assets/dist/js'));
+}
+
+// Custom JS Task: minify individually each js file from 'js/src' path to 'js'
+
+function customJsTask() {
+    return src(files.jsPath)
     .pipe(uglify())
-	.pipe(concat('main.js'))
-	.pipe(gulp.dest('dist/js'))
-});
+    .pipe(dest('assets/dist/js'))
+}
 
-gulp.task('imagemin', function() {
-	gulp.src('src/images/*')
-	.pipe(imagemin())
-	.pipe(gulp.dest('dist/images'))
-});
+// Watch task: watch SCSS and JS files for changes
+// If any change, run scss and js tasks simultaneously
+function watchTask(){
+    watch([files.scssPath, files.jsPath, files.customCSSPath],
+        //{interval: 1000, usePolling: true}, //Makes docker work
+        series(
+            parallel(scssTask, jsTask, customCssTask, customJsTask)
+        )
+    );
+}
 
-gulp.task('watch', function() {
-	
-	gulp.watch('src/scss/**/*.scss', gulp.series('sass'));
-	gulp.watch(['src/js/vendor/*.js','src/js/scripts/*.js'], gulp.series('scripts'));
-	gulp.watch('src/images/*', gulp.series('imagemin'));
-	
-});
+
+// Export the default Gulp task so it can be run
+// Runs the scss and js tasks simultaneously
+// then runs cacheBust, then watch task
+exports.default = series(
+    parallel(scssTask, jsTask, customCssTask),
+    watchTask
+);
